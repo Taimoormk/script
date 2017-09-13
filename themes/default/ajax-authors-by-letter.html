@@ -1,0 +1,22 @@
+{literal}
+<script>
+$(function() {
+$(".paginations li.active").click(function() {
+var letter = $('a.selected').attr('scope');
+var page = $(this).attr('rel');
+$.get("ajax.php?do=ajax_author_by_letter", { "letter": letter, "page": page }, function(data){
+$('.authors').html(data);
+$(".authors div.loader").remove();
+});	
+});
+});
+</script>
+{/literal}
+
+{section name=x loop=$authors}
+<div class="col-md-4 col-sm-6"><a href="./author/{$authors[x].slug}" class="author-link">{$authors[x].author}</a></div>
+{/section}
+<div class="clear"></div>
+{if $count gt $per_page}
+{$paginations}
+{/if}

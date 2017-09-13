@@ -1,0 +1,9 @@
+
+<div class="top-topics box">
+<h3>Top Topics<a href="./topics">all topics</a></h3>
+<ul class="row">
+{section name=x loop=$top_categories}
+<li class="col-xs-6"><a href="./topic/{$top_categories[x].slug}">{$top_categories[x].category}</a></li>
+{/section}
+</ul>
+</div>

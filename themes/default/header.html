@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Script Charset -->
+	<meta charset="UTF-8">
+	<!-- Style Viewport for Responsive purpose -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- The Script Base URL -->
+	<BASE href="{$general_siteurl}">
+	<!-- SEO title,keywords,description -->	
+    <title>{$seo_title}</title>
+	<meta name="description" content="{$seo_description|html_decode}">
+	<meta name="keywords" content="{$seo_keywords|html_decode}">
+	<!-- CSS Files -->
+    <link rel="stylesheet" href="themes/default/css/bootstrap.min.css">
+	<link rel="stylesheet" href="themes/default/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="themes/default/css/font-awesome.min.css">
+    <link rel="stylesheet" href="themes/default/css/rrssb.css">
+	<link rel="stylesheet" href="themes/default/css/style.css">
+	<!-- Javascript Files -->
+	<script src="themes/default/js/jquery.min.js"></script>
+    <script src="themes/default/js/bootstrap.min.js"></script>
+	<script src="themes/default/js/rrssb.min.js"></script>
+	<script src="themes/default/js/jquery.fastLiveFilter.js"></script>
+	<script src="themes/default/js/functions.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li {if isset($is_home) AND $is_home eq 1}class="active"{/if}><a href="./">Home</a></li>
+					<li {if isset($is_topics) AND $is_topics eq 1}class="active"{/if}><a href="./topics">Topics</a></li>
+					<li {if isset($is_authors) AND $is_authors eq 1}class="active"{/if}><a href="./authors">Authors</a></li>
+					
+                </ul>
+				<ul class="nav navbar-nav navbar-right search-nav">
+                    <li class="search-form">
+						<form method="GET" action="./search/">
+							<div class="input-group">
+							  <input type="text" name="q" class="form-control" placeholder="Search Quotes" {if isset($is_search) AND $is_search eq 1}value="{$q}"{/if} />
+							  <span class="input-group-addon"><button type="submit" class="btn-link"><span class="fa fa-search"></span></button></span>
+							</div>
+						</form>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- End Menu -->
+
+<!-- Header (logo and header ad) -->
+<div class="header">
+<div class="container">
+<div class="col-md-4 logo"><a href="{$general_siteurl}"><img src="themes/default/images/logo.png" /></a></div>
+<div class="col-md-8">{$header_ad}</div>
+</div>
+</div>
+<!-- End Header -->
+<!-- Start Menu -->

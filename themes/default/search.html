@@ -1,0 +1,38 @@
+<!-- HomePage HTML -->
+{include file="header.html"}
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+{include file="sidebar.html"}
+</div>
+<div class="col-md-8">
+{if empty($q)}
+<div class="alert alert-warning">Insert the Search Query Word Please.</div>
+{elseif $total_records eq 0}
+<h3 class="page-single-header">Search For {$q} In Quotes</h3>
+<div class="alert alert-warning">No Result Found.</div>
+{else}
+<h3 class="page-single-header">Search For {$q} In Quotes
+<span class="label label-warning pull-right">{$total_records}</span></h3>
+{section name=x loop=$quotes}
+<div class="quote">
+<div class="author-topic">
+<a href="./author/{$quotes[x].author_id|get_author_slug}" class="author pull-left">{$quotes[x].author_id|get_author}</a> 
+<a href="./topic/{$quotes[x].category_id|get_category_slug}" class="topic pull-right">{$quotes[x].category_id|get_category}</a>
+</div>
+<p>{$quotes[x].quote|html_decode}</p>
+</div>
+<!-- Start Content Advertisement -->
+{if !empty($content_ad) AND $smarty.section.x.index eq 7}
+<div class="quote">{$content_ad}</div>
+{/if}
+<!-- End Content Advertisement -->
+{/section}
+<div class="clear"></div>
+{$pagi}
+{/if}
+</div>
+</div>
+</div>
+{include file="footer.html"}
+<!-- End HomePage HTML -->

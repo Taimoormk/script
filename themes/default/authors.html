@@ -1,0 +1,31 @@
+<!-- HomePage HTML -->
+{include file="header.html"}
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+{include file="sidebar.html"}
+</div>
+<div class="col-md-8">
+<div class="all-topics">
+<h3>All Authors
+<span class="pull-right">
+<input class="form-control" id="a_inputString" onkeyup="authors_page_lookup(this.value);" onblur="if ( this.value == '' ) this.value = this.defaultValue" onfocus="if ( this.value == this.defaultValue ) this.value = ''" type="text" value="" placeholder="Search for Author">
+</span>
+</h3>
+<div class="letters">
+{foreach name=x from=$letters key=id item=letter}
+<a href="javascript:void();" scope="{$letter}" class="letter {if $smarty.foreach.x.first}selected{/if}">{$letter}</a>
+{/foreach}
+</div>
+<div class="authors">
+
+</div>
+<div class="searchresults">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+{include file="footer.html"}
+<!-- End HomePage HTML -->

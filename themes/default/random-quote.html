@@ -1,0 +1,11 @@
+
+<div class="random-quote box">
+<h3>Random Quote <a href="javascript:void();" class="generate-random-quote"><i class="fa fa-refresh"></i></a></h3>
+<div class="r-quote" id="random-quote">
+<div class="author-topic">
+<a href="./author/{$lucky_author_id|get_author_slug}" class="author pull-left">{$lucky_author_id|get_author}</a> 
+<a href="./topic/{$lucky_category_id|get_category_slug}" class="topic pull-right">{$lucky_category_id|get_category}</a>
+</div>
+<p>{$lucky_quote|html_decode}</p>
+</div>
+</div>

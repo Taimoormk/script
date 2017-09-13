@@ -1,0 +1,24 @@
+<!-- HomePage HTML -->
+{include file="header.html"}
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+{include file="sidebar.html"}
+</div>
+<div class="col-md-8">
+{section name=x loop=$quotes}
+<div class="quote">
+<div class="author-topic">
+<a href="./author/{$quotes[x].author_id|get_author_slug}" class="author pull-left">{$quotes[x].author_id|get_author}</a> 
+<a href="./topic/{$quotes[x].category_id|get_category_slug}" class="topic pull-right">{$quotes[x].category_id|get_category}</a>
+</div>
+<p><a href="./quote/{$quotes[x].id}/{$quotes[x].author_id}">{$quotes[x].quote|html_decode|truncate:80}</a></p>
+</div>
+{/section}
+<div class="clear"></div>
+{$pagi}
+</div>
+</div>
+</div>
+{include file="footer.html"}
+<!-- End HomePage HTML -->

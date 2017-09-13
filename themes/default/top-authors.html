@@ -1,0 +1,15 @@
+
+<div class="top-authors box">
+<h3>Top Authors<a href="./authors">all authors</a></h3>
+<div class="authors-search">
+	<input type="text" class="form-control" id="m_inputString" onkeyup="authors_lookup(this.value);" onblur="if ( this.value == '' ) this.value = this.defaultValue" onfocus="if ( this.value == this.defaultValue ) this.value = ''" type="text" placeholder="Search For Author" value="" />
+</div>
+<ul id="authors">
+{section name=x loop=$top_authors}
+<li>
+<a href="./author/{$top_authors[x].slug}">{$top_authors[x].author} <span class="label label-warning pull-right">{$top_authors[x].quotes_number}</span></a>
+</li>
+{/section}
+</ul>
+<ul id="searchresults"></ul>
+</div>

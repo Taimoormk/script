@@ -1,0 +1,30 @@
+<!-- HomePage HTML -->
+{include file="header.html"}
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+{include file="sidebar.html"}
+</div>
+<div class="col-md-8">
+<h3 class="page-single-header">{$topic_category} Quotes
+<span class="label label-warning pull-right">{$topic_quotes_number}</span></h3>
+{section name=x loop=$quotes}
+<div class="quote">
+<div class="author-topic">
+<a href="./author/{$quotes[x].author_id|get_author_slug}" class="author pull-left">{$quotes[x].author_id|get_author}</a> 
+</div>
+<p><a href="./quote/{$quotes[x].id}/{$quotes[x].author_id}">{$quotes[x].quote|html_decode|truncate:80}</a></p>
+</div>
+<!-- Start Content Advertisement -->
+{if !empty($content_ad) AND $smarty.section.x.index eq 7}
+<div class="quote">{$content_ad}</div>
+{/if}
+<!-- End Content Advertisement -->
+{/section}
+<div class="clear"></div>
+{$pagi}
+</div>
+</div>
+</div>
+{include file="footer.html"}
+<!-- End HomePage HTML -->

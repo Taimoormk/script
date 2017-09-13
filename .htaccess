@@ -1,0 +1,12 @@
+RewriteEngine on
+RewriteRule ^topics$ topics.php
+RewriteRule ^authors$ authors.php
+RewriteRule ^topic/(.*)$ topic.php?slug=$1
+RewriteRule ^author/(.*)$ author.php?slug=$1
+RewriteRule ^quote/(.*)/(.*)$ quote.php?id=$1&author=$2
+RewriteRule ^page/(.*)/(.*)$ page.php?id=$1&slug=$2
+RewriteRule ^search/(.*)$ search.php?q=$1
+RewriteRule ^not-found$ notfound.php
+RewriteRule ^topics-sitemap-(.*).xml$ topics-sitemap.php?id=$1
+RewriteRule ^authors-sitemap-(.*).xml$ authors-sitemap.php?id=$1
+RewriteRule ^quotes-sitemap-(.*).xml$ quotes-sitemap.php?id=$1

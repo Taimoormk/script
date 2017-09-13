@@ -1,0 +1,21 @@
+{literal}
+<script>
+$(function() {
+$(".paginations li.active").click(function() {
+var query = '{/literal}{$q}{literal}';
+var page = $(this).attr('rel');
+$.get("ajax.php?do=ajax_search_author_page", { "q": query, "page": page }, function(data){
+$('.searchresults').html(data);
+});	
+});
+});
+</script>
+{/literal}
+
+{section name=x loop=$authors}
+<div class="col-md-4 col-sm-6"><a href="./author/{$authors[x].slug}" class="author-link">{$authors[x].author}</a></div>
+{/section}
+<div class="clear"></div>
+{if $count gt $per_page}
+{$paginations}
+{/if}

@@ -1,0 +1,5 @@
+{section name=x loop=$authors}
+<li>
+<a href="./author/{$authors[x].slug}">{$authors[x].author} <span class="label label-warning pull-right">{$authors[x].quotes_number}</span></a>
+</li>
+{/section}
